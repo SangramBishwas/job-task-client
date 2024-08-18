@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { axiosPublic } from "../Hooks/useAxios";
 import { FaStarHalfAlt } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+import { IoMenuSharp, IoSearch } from "react-icons/io5";
 const Products = () => {
     const [phones, setPhones] = useState([]);
     const [order, setOrder] = useState('')
@@ -47,8 +47,30 @@ const Products = () => {
                 </label>
 
             </form>
+            <div className="flex justify-around items-center">
+                <div className="dropdown dropdown-hover">
+                    <div tabIndex={0} role="button" className="btn m-1">$ Pice Range</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                    </ul>
+                </div><div className="dropdown dropdown-hover">
+                    <div tabIndex={0} role="button" className="btn m-1">Category</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li><a>IOS</a></li>
+                        <li><a>Android</a></li>
+                        <li><a>Windows</a></li>
+                    </ul>
+                </div>
+                <details className="dropdown">
+                    <summary className="btn m-1 text-lg flex items-center"><IoMenuSharp className="text-2xl" />Bands</summary>
+                    <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                    </ul>
+                </details>
+            </div>
             <div className="grid grid-cols-1 my-10 md:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 lg:px-20 gap-8 lg:gap-16">
-
                 {
                     phones.map(phone => <div key={phone._id} className="card bg-base-100 md:w-80 h-96 shadow-xl">
                         <figure>

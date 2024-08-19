@@ -5,12 +5,13 @@ import { IoMenuSharp, IoSearch } from "react-icons/io5";
 const Products = () => {
     const [phones, setPhones] = useState([]);
     const [order, setOrder] = useState('')
+    const [category, setCategory] = useState('')
     const [isInput, setIsInput] = useState(false);
     const [search, setSearch] = useState('')
     useEffect(() => {
-        axiosPublic.get(`/mobiles?sort=${order}&search=${search}`)
+        axiosPublic.get(`/mobiles?sort=${order}&category=${category}&search=${search}`)
             .then(res => setPhones(res.data))
-    }, [order, search])
+    }, [order, category, search])
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -57,9 +58,9 @@ const Products = () => {
                 </div><div className="dropdown dropdown-hover">
                     <div tabIndex={0} role="button" className="btn m-1">Category</div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>IOS</a></li>
-                        <li><a>Android</a></li>
-                        <li><a>Windows</a></li>
+                        <li onClick={() => setCategory('iOS')}><a>iOS</a></li>
+                        <li onClick={() => setCategory('Android')}><a>Android</a></li>
+                        <li onClick={() => setCategory('Windows')}><a>Windows</a></li>
                     </ul>
                 </div>
                 <details className="dropdown">

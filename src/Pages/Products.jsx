@@ -8,10 +8,11 @@ const Products = () => {
     const [category, setCategory] = useState('')
     const [isInput, setIsInput] = useState(false);
     const [search, setSearch] = useState('')
+    const [brand, setBrand] = useState('')
     useEffect(() => {
-        axiosPublic.get(`/mobiles?sort=${order}&category=${category}&search=${search}`)
+        axiosPublic.get(`/mobiles?sort=${order}&category=${category}&brand=${brand}&search=${search}`)
             .then(res => setPhones(res.data))
-    }, [order, category, search])
+    }, [order, category, brand, search])
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -66,8 +67,20 @@ const Products = () => {
                 <details className="dropdown">
                     <summary className="btn m-1 text-lg flex items-center"><IoMenuSharp className="text-2xl" />Bands</summary>
                     <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
+                        <li onClick={() => setBrand('Apple')}><a>Apple</a></li>
+                        <li onClick={() => setBrand('Samsung')}><a>Samsung</a></li>
+                        <li onClick={() => setBrand('Google')}><a>Google</a></li>
+                        <li onClick={() => setBrand('OnePlus')}><a>OnePlus</a></li>
+                        <li onClick={() => setBrand('Sony')}><a>Sony</a></li>
+                        <li onClick={() => setBrand('Microsoft')}><a>Microsoft</a></li>
+                        <li onClick={() => setBrand('Motorola')}><a>Motorola</a></li>
+                        <li onClick={() => setBrand('Nokia')}><a>Nokia</a></li>
+                        <li onClick={() => setBrand('Asus')}><a>Asus</a></li>
+                        <li onClick={() => setBrand('Oppo')}><a>Oppo</a></li>
+                        <li onClick={() => setBrand('Realme')}><a>Realme</a></li>
+                        <li onClick={() => setBrand('Honor')}><a>Honor</a></li>
+                        <li onClick={() => setBrand('Huawei')}><a>Huawei</a></li>
+                        <li onClick={() => setBrand('BlackBerry')}><a>BlackBerry</a></li>
                     </ul>
                 </details>
             </div>

@@ -1,9 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const links = <>
     <li><NavLink className={({ isActive }) => isActive ? "font-bold md:text-base text-lime-400" : "md:text-base font-semibold"} to="/">Home</NavLink></li>
-    <li><NavLink className={({ isActive }) => isActive ? "font-bold md:text-base text-lime-400" : "md:text-base font-semibold"} to="/product">Products</NavLink></li>
     <li><NavLink className={({ isActive }) => isActive ? "text-base font-semibold" : "md:text-base font-semibold"}>About</NavLink></li>
     </>
     return (
@@ -38,7 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <Link to="/register" className="btn">Register</Link>
             </div>
         </div>
     );

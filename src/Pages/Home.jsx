@@ -50,23 +50,10 @@ const Products = () => {
 
             </form>
             <div className="flex justify-around items-center">
-                <div className="dropdown dropdown-hover">
-                    <div tabIndex={0} role="button" className="btn m-1">$ Pice Range</div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
-                    </ul>
-                </div><div className="dropdown dropdown-hover">
-                    <div tabIndex={0} role="button" className="btn m-1">Category</div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li onClick={() => setCategory('iOS')}><a>iOS</a></li>
-                        <li onClick={() => setCategory('Android')}><a>Android</a></li>
-                        <li onClick={() => setCategory('Windows')}><a>Windows</a></li>
-                    </ul>
-                </div>
-                <details className="dropdown">
+            <details className="dropdown">
                     <summary className="btn m-1 text-lg flex items-center"><IoMenuSharp className="text-2xl" />Bands</summary>
                     <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li onClick={() => location.reload()}><button>All</button></li>
                         <li onClick={() => setBrand('Apple')}><a>Apple</a></li>
                         <li onClick={() => setBrand('Samsung')}><a>Samsung</a></li>
                         <li onClick={() => setBrand('Google')}><a>Google</a></li>
@@ -83,6 +70,20 @@ const Products = () => {
                         <li onClick={() => setBrand('BlackBerry')}><a>BlackBerry</a></li>
                     </ul>
                 </details>
+                <div className="dropdown dropdown-hover">
+                    <div tabIndex={0} role="button" className="btn m-1">$ Pice Range</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                    </ul>
+                </div><div className="dropdown dropdown-hover">
+                    <div tabIndex={0} role="button" className="btn m-1">Category</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li onClick={() => setCategory('iOS')}><a>iOS</a></li>
+                        <li onClick={() => setCategory('Android')}><a>Android</a></li>
+                        <li onClick={() => setCategory('Windows')}><a>Windows</a></li>
+                    </ul>
+                </div>
             </div>
             <div className="grid grid-cols-1 my-10 md:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 lg:px-20 gap-8 lg:gap-16">
                 {
